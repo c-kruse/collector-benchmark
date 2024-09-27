@@ -1,0 +1,45 @@
+[
+    [
+        "router",
+        {
+            "id": "a",
+            "mode": "interior",
+            "helloMaxAgeSeconds": "3"
+        }
+    ],
+    [
+        "listener",
+        {
+            "name": "skupper-local-normal",
+            "role": "normal",
+            "host": "0.0.0.0",
+            "port": 5672
+        }
+    ],
+    [
+        "tcpConnector",
+        {
+            "name": "nginx-web",
+            "host": "nginx",
+            "port": "80",
+            "address": "web"
+        }
+    ],
+    [
+        "tcpListener",
+        {
+            "name": "web-8180",
+            "host": "0.0.0.0",
+            "port": "8180",
+            "address": "web"
+        }
+    ],
+    [
+        "site",
+        {
+            "name": "ls1",
+            "platform": "systemd",
+            "namespace": "local"
+        }
+    ]
+]
