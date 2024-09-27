@@ -11,3 +11,4 @@ scrape_configs:
     static_configs:
       - targets:
         - "collector:8080"
+        - "podman-exporter:9882"

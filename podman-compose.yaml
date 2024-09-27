@@ -1,4 +1,6 @@
 version: 4
+x-podman:
+  use-pod: false
 services:
   nginx:
     image: docker.io/nginx:1-alpine
@@ -27,6 +29,15 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus:ro,z
       - prom_data:/prometheus
+  podman-exporter:
+    image: quay.io/navidys/prometheus-podman-exporter
+    userns_mode: keep-id
+    environment:
+      - CONTAINER_HOST=unix:///run/podman/podman.sock 
+    security_opt:
+      - "label=disable"
+    volumes:
+      - "$XDG_RUNTIME_DIR/podman/podman.sock:/run/podman/podman.sock"
   grafana:
     image: docker.io/grafana/grafana
     ports:
