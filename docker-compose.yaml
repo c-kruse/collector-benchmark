@@ -19,7 +19,7 @@ services:
     ports:
       - 8080:8080
   prometheus:
-    image: prom/prometheus
+    image: docker.io/prom/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
@@ -28,7 +28,7 @@ services:
       - ./prometheus:/etc/prometheus:ro,z
       - prom_data:/prometheus
   grafana:
-    image: grafana/grafana
+    image: docker.io/grafana/grafana
     ports:
       - 3000:3000
     environment:
