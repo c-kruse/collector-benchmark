@@ -17,6 +17,7 @@ services:
     image: quay.io/skupper/network-console-collector:v2-latest
     command:
       - -router-endpoint=amqp://router:5672
+      - -prometheus-api=http://prometheus:9090
       - -flow-record-ttl=1m
     ports:
       - 8080:8080
