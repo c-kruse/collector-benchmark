@@ -1,0 +1,43 @@
+[
+    [
+        "router",
+        {
+            "id": "r02",
+            "mode": "interior",
+            "helloMaxAgeSeconds": "3"
+        }
+    ],
+    [
+        "listener",
+        {
+            "name": "amqp",
+            "host": "0.0.0.0",
+            "port": 5672
+        }
+    ],
+    [
+        "address",
+        {
+            "prefix": "mc",
+            "distribution": "multicast"
+        }
+    ],
+    [
+        "listener",
+        {
+            "name": "skupper-router-inter-router",
+            "role": "inter-router",
+            "host": "0.0.0.0",
+            "port": 5677
+        }
+    ],
+    [
+        "connector",
+        {
+            "name": "to-03",
+            "role": "inter-router",
+            "host": "router-03",
+            "port": "5677"
+        }
+    ]
+]
