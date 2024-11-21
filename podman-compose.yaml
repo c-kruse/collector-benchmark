@@ -9,7 +9,7 @@ services:
     volumes:
       - ./config/01:/etc/skupper-router/config:ro,z
     ports:
-      - 15672:5672
+      - 15671:5672
   router-02:
     image: quay.io/skupper/skupper-router:main
     environment:
@@ -19,7 +19,7 @@ services:
     volumes:
       - ./config/02:/etc/skupper-router/config:ro,z
     ports:
-      - 15673:5672
+      - 15672:5672
   router-03:
     image: quay.io/skupper/skupper-router:main
     environment:
@@ -29,4 +29,4 @@ services:
     volumes:
       - ./config/03:/etc/skupper-router/config:ro,z
     ports:
-      - 15674:5672
+      - 15673:5672
