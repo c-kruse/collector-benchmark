@@ -23,6 +23,13 @@
         }
     ],
     [
+        "address",
+        {
+            "prefix": "zap",
+            "distribution": "multicast"
+        }
+    ],
+    [
         "listener",
         {
             "name": "skupper-router-inter-router",
